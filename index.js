@@ -10,19 +10,22 @@ const app  = express();
 
 app.use(express.json());
 
+let textR = "hello";
+let locationR ="lo";
+
 app.get('/', function(req, res){
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.set('Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS');
     var homepageText = {
-      text: "hellos",
-      location: "Emptyds"
+      text: textR,
+      location: locationR
     } 
     res.send(homepageText);
   });
 
   app.post('/',(req, res) => {
-    var user_name = req.body.user;
-    var password = req.body.password;
+    textR= req.body.user;
+    locationR = req.body.password;
     console.log("User name = "+user_name+", password is "+password);
     res.end("yes");
   });
