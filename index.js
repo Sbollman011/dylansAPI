@@ -9,7 +9,8 @@ const app  = express();
 app.get('/', function(req, res){
     res.setHeader('Access-Control-Allow-Origin', '*');
     var homepageText = {
-      text: "hello"
+      text: "hello",
+      location: ""
     } 
     res.send(homepageText);
   });
