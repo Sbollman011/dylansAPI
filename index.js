@@ -10,15 +10,16 @@ const app  = express();
 
 app.use(express.json());
 
-let textR = "hello";
-let locationR ="lo";
+var user_id = '';
+var token = '';
+var geo = '';
 
 app.get('/', function(req, res){
     res.setHeader('Access-Control-Allow-Origin', '*');
    res.set('Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS');
     var homepageText = {
-      text: textR,
-      location: locationR
+      text: "plase",
+      location: "please"
     } 
     res.send(homepageText);
   });
@@ -30,18 +31,22 @@ app.get('/', function(req, res){
     res.end("yes");
   });
 
-  /*app.get('/api/users', function(req, res) {
-    var user_id = req.param('id');
-    var token = req.param('token');
-    var geo = req.param('geo');
-
-    res.send(user_id + ' ' + token + ' ' + geo);
-});*/
+  app.get('/api/users', function(req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+   res.set('Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS');
+    var homepageText = {
+      user_id: user_id,
+      token: token,
+      geo: geo
+      
+    } 
+    res.send(homepageText);
+  });
 
 app.post('/api/users', function(req, res) {
-  var user_id = req.body.id;
-  var token = req.body.token;
-  var geo = req.body.geo;
+   user_id = req.body.id;
+   token = req.body.token;
+   geo = req.body.geo;
 
   res.send(user_id + ' ' + token + ' ' + geo);
 });
