@@ -15,12 +15,12 @@ app.get('/', function(req, res){
     res.set('Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS');
     var homepageText = {
       text: "hellos",
-      location: "Empty"
+      location: "Emptyds"
     } 
     res.send(homepageText);
   });
 
-  app.post('/login',(req, res) => {
+  app.post('/',(req, res) => {
     var user_name = req.body.user;
     var password = req.body.password;
     console.log("User name = "+user_name+", password is "+password);
