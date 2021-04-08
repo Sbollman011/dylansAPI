@@ -14,7 +14,7 @@ app.get('/', function(req, res){
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS');
     var homepageText = {
-      text: "hello",
+      text: "hellos",
       location: "Empty"
     } 
     res.send(homepageText);
