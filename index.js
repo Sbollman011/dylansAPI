@@ -14,20 +14,33 @@ var text= '';
 var location1 = '';
 var location2 = '';
 
-app.get('/', function(req, res){
+app.get('/dylan', function(req, res){
     res.setHeader('Access-Control-Allow-Origin', '*');
    res.set('Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS');
     var homepageText = {
       text: text,
       location1: location1,
+    } 
+    res.send(homepageText);
+  });
+
+  app.post('/dylan',(req, res) => {
+    text = req.body.text;
+    location1 = req.body.location1;
+   });
+
+   app.get('/steven', function(req, res){
+    res.setHeader('Access-Control-Allow-Origin', '*');
+   res.set('Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS');
+    var homepageText = {
+      text: text,
       location2: location2
     } 
     res.send(homepageText);
   });
 
-  app.post('/',(req, res) => {
+  app.post('/steven',(req, res) => {
     text = req.body.text;
-    location1 = req.body.location1,
     location2 = req.body.location2
    });
 
